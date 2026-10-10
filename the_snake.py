@@ -125,7 +125,6 @@ class Snake(GameObject):
         # Удаление последнего сегмента змейки, если длина больше текущей длины
         if len(self.positions) > self.length:
             self.last = self.positions.pop()
-    # Метод сброса змейки в начальное состояние
 
     def reset(self, position):
         """Метод для сброса змейки в начальное состояние."""
