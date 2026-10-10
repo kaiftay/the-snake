@@ -40,9 +40,10 @@ clock = pygame.time.Clock()
 
 
 class GameObject:
-    def __init__(self, position=None, body_color=None):
-        self.position = position
-        self.body_color = body_color
+    def __init__(self, position: tuple[int, int], body_color: tuple[int, int, int]):
+        self.position: tuple[int, int] = position
+        self.body_color: tuple[int, int, int] = body_color
+
     # Метод вызова случайной позиции объекта на игровом поле
 
     def randomize_position(self):
