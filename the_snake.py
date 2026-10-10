@@ -178,7 +178,6 @@ def handle_keys(game_object):
 def main():
     """Главная функция для запуска игры."""
     pygame.init()
-    print("Игра 'Змейка' запущена. Управление: стрелки на клавиатуре.")
 
     apple = Apple((0, 0))
     apple.randomize_position()
