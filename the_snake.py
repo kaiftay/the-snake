@@ -170,7 +170,7 @@ def main():
     rock = Apple(body_color=ROCK_COLOR)
     rock.randomize_position(snake.positions)
     apple = Apple()
-    apple.randomize_position(snake.positions + [rock.position])
+    apple.randomize_position([*snake.positions, rock.position])
     screen.fill(BOARD_BACKGROUND_COLOR)
 
     while True:
@@ -183,16 +183,12 @@ def main():
 
         if head == apple.position:
             snake.length += 1
-            apple.randomize_position(snake.positions + [rock.position])
-        elif head in snake.positions[4:]:
-            snake.reset()
-            screen.fill(BOARD_BACKGROUND_COLOR)
-            apple.randomize_position(snake.positions + [rock.position])
-        elif head == rock.position:
+            apple.randomize_position([*snake.positions, rock.position])
+        elif head in snake.positions[4:] or head == rock.position:
             snake.reset()
             screen.fill(BOARD_BACKGROUND_COLOR)
             rock.randomize_position(snake.positions)
-            apple.randomize_position(snake.positions + [rock.position])
+            apple.randomize_position([*snake.positions, rock.position])
 
         apple.draw()
         rock.draw()
